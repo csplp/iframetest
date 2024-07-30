@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iFrame autofill test</title>
+<script>
+    var form = document.getElementById("formId"); 
+    function handleForm(event) {
+        event.preventDefault();
+        var prop = {}
+        prop['username'] = document.getElementById("u").value;
+        prop['password']= document.getElementById("p").value;
+        var result = document.getElementById("result");
+        result.innerHTML = "Result: " + "<pre>" + JSON.stringify(prop, null, 2) + "</pre>";
+        return false;
+    }
+</script>
+</head>
+<body>
+<form id="formId" method="post" autocomplete="off" onsubmit="return handleForm(event)">
+<div id="drewtest">
+    Username: <input id="u" name="u" type="text"><br>
+    Password: <input id="p" name="p" type="password"><br>
+</div>
+<input type="submit">
+</form><br>
+<iframe src="https://hiblia.com/lp/login.php"></iframe><br>
+<div id="result">Result</div>
+</body>
+</html>

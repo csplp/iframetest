@@ -96,7 +96,7 @@
                 if (validateStep(currentStep)) {
                     currentStep++;
                     if (currentStep == 1) {
-                        location.href = window.location.href + '?step=1';
+                        location.href = window.location.href + '?step=1&email=' + document.getElementById('email').value;
                         return;
                     }
                     if (currentStep == steps.length - 1) {
@@ -109,9 +109,13 @@
         }
 
         function prevStep() {
+            if (currentStep == 1) {
+                location.href = window.location.href.split('?')[0];
+                return;
+            }
             if (currentStep > 0) {
                 currentStep--;
-                showStep(currentStep)
+                showStep(currentStep);
             }
         }
 
@@ -144,9 +148,13 @@
             return -1;
         }
 
-        queryStep = getQueryVariable('step')
+        queryStep = getQueryVariable('step');
         if (queryStep != -1) {
             currentStep = queryStep
+        }
+        email = getQueryVariable('email');
+        if (email != -1) {
+            document.getElementById('email').value = email
         }
         showStep(currentStep);
     </script>

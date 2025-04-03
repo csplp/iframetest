@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lastpass.lastpasspasskeydemo",
+      "sha256_cert_fingerprints":
+      ["F7:63:DD:4B:2F:26:59:18:64:9C:C6:41:B1:0A:F0:6F:59:F6:8C:04:EB:BD:BB:C2:BE:46:A2:29:E5:DA:12:8E"]
+    }
+  }]

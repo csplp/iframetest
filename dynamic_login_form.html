@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autofill Login Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 400px; margin: auto; }
+        input { display: block; margin: 10px 0; padding: 8px; width: 100%; }
+        button { padding: 10px; margin-top: 10px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Form</h2>
+        <label for="username" class="af-u-l">Username:</label>
+        <input type="text" id="username" class="af-u-i" placeholder="Enter username">
+
+        <label for="password" class="af-p-l">Password:</label>
+        <input type="password" id="password" class="af-p-i" placeholder="Enter password">
+
+        <h3>Set Login Values</h3>
+        <label for="setUsername">Username id:</label>
+        <input type="text" id="autofill_username_id" placeholder="id" autocomplete="off">
+
+        <label for="setPassword">Password id:</label>
+        <input type="text" id="autofill_password_id" placeholder="New password" autocomplete="off">
+
+        <label for="autofill_username_placeholder">Username placeholder:</label>
+        <input type="text" id="autofill_username_placeholder" placeholder="User placeholder" autocomplete="off">
+
+        <label for="autofill_password_placeholder">Password placeholder:</label>
+        <input type="text" id="autofill_password_placeholder" placeholder="Password Placeholder" autocomplete="off">
+
+        <button onclick="updateLoginFields()">Update Login Fields</button>
+        <button onclick="clearArguments()">Clear arguments</button>
+    </div>
+
+    <script>
+        function updateLoginFields() {
+            const newUsernameId = document.getElementsByClassName('autofill_username_id').value;
+            const newPasswordId = document.getElementsByClassName('autofill_password_id').value;
+
+            // if (newUsernameId) {
+                document.getElementsByClassName('af-u-i')[0].id = newUsernameId;
+            // }
+            // if (newPasswordId) {
+                document.getElementsByClassName('af-p-i')[0].id = newPasswordId;
+            // }
+
+            const newUsernamePlaceholder = document.getElementById('autofill_username_placeholder').value;
+            const newPasswordPlaceholder = document.getElementById('autofill_password_placeholder').value;
+
+            // if (newUsernamePlaceholder) {
+                document.getElementsByClassName('af-u-i')[0].placeholder = newUsernamePlaceholder;
+            // }
+            // if (newPasswordPlaceholder) {
+                document.getElementsByClassName('af-p-i')[0].placeholder = newPasswordPlaceholder;
+            // }
+        }
+
+        function clearArguments() {
+            document.getElementsByClassName('autofill_username_id').value = "";
+            document.getElementsByClassName('autofill_password_id').value = "";
+            document.getElementById('autofill_username_placeholder').value = "";
+            document.getElementById('autofill_password_placeholder').value = "";
+        }
+    </script>
+</body>
+</html>
